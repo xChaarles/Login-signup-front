@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './SistemCofee.component.html',
   styles: ``
 })
-export class SistemCofeeComponent {
+export default class SistemCofeeComponent {
 
 }

@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './singup.component.html',
   styles: ``
 })
-export class SingupComponent {
+export default class SingupComponent {
 
 }
