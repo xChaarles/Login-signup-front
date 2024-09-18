@@ -91,6 +91,20 @@ export class UsersService {
     }
   }
 
+  //Metodo para el perfil del usuario
+  async getYourProfile(token:string):Promise<any>{
+    const url = `${this.api}/adminuser/get-profile`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    })
+    try{
+      const response =  this.http.get<any>(url, {headers}).toPromise()
+      return response;
+    }catch(error){
+      throw error;
+    }
+  }
+
   //METODOS DE AUTENTICACION
   logOut(): void{
     if(typeof localStorage !== 'undefined'){

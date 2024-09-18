@@ -15,7 +15,22 @@ export const routes: Routes = [
                 path: 'singup',
                 title: 'Registrate',
                 loadComponent: () => import('./SistemCofee/singup/singup.component'),
-            }
+            },
+            {
+                path: 'perfil',
+                title: 'Perfil',
+                loadComponent: () => import('./SistemCofee/perfil/perfil.component'),
+            },
+            {
+                path: 'userlist',
+                title: 'Lista Usuarios',
+                loadComponent: () => import('./SistemCofee/userlist/userlist.component'),
+            },
+            {
+                path: 'updateuser',
+                title: 'Actualizar Usuario',
+                loadComponent: () => import('./SistemCofee/updateuser/updateuser.component'),
+            },
             {
                 path:'', 
                 redirectTo: 'login',
