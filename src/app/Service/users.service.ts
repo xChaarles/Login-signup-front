@@ -84,10 +84,42 @@ export class UsersService {
       'Authorization': `Bearer ${token}`
     })
     try{
-      const response = this.http.put<any>(url, {headers}).toPromise()
+      const response = this.http.put<any>(url, userData, {headers}).toPromise()
       return response;
     }catch(error){
       throw error;
     }
+  }
+
+  //METODOS DE AUTENTICACION
+  logOut(): void{
+    if(typeof localStorage !== 'undefined'){
+      localStorage.removeItem('token')
+      localStorage.removeItem('role')
+    }
+  }
+
+  isAuthenticated(): boolean{
+    if(typeof localStorage !== 'undefined'){
+      const token = localStorage.getItem('token');
+      return !!token;
+    }
+    return false;
+  }
+
+  isAdmin(): boolean{
+    if(typeof localStorage !== 'undefined'){
+      const role = localStorage.getItem('role');
+      return role == "ADMIN";
+    }
+    return false;
+  }
+
+  isUser(): boolean{
+    if(typeof localStorage !== 'undefined'){
+      const role = localStorage.getItem('role');
+      return role == "USER";
+    }
+    return false;
   }
 }

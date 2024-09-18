@@ -1,5 +1,19 @@
-import { CanActivateFn } from '@angular/router';
+import { CanActivateFn, Router } from '@angular/router';
+import { UsersService } from './users.service';
+import { inject } from '@angular/core';
 
 export const usersGuard: CanActivateFn = (route, state) => {
-  return true;
+  if(inject(UsersService).isAuthenticated()){
+    return true;
+  }else
+    inject(Router).navigate(['/Sistemcofee'])
+  return false;
+};
+
+export const adminGuard: CanActivateFn = (route, state) => {
+  if(inject(UsersService).isAdmin()){
+    return true;
+  }else
+    inject(Router).navigate(['/Sistemcofee/login'])
+  return false;
 };
