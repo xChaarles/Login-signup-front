@@ -12,6 +12,8 @@ import { CommonModule } from '@angular/common';
 })
 export default class PerfilComponent implements OnInit{
 
+  isAdmin: boolean = false;
+
   constructor (private readonly userService: UsersService,private readonly router: Router){
 
   }
@@ -33,6 +35,7 @@ export default class PerfilComponent implements OnInit{
   }
 
   updatePerfil(id : number){
+    this.isAdmin = this.userService.isAdmin();
     this.router.navigate(['SistemCofee/updateuser', id])
   }
 
