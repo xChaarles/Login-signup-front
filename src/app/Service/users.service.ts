@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class UsersService {
     }
   }
 
-  //Metodo para Registrar un usuario
+  //Metodo para Registrar un usuario  admin
   async register(UserData:any, token:string):Promise<any>{
     const url = `${this.api}/auth/register`;
     const headers = new HttpHeaders({
@@ -33,6 +34,11 @@ export class UsersService {
     }catch(error){
       throw error;
     }
+  }
+
+  //Metodo para singup desde el usuario
+  SingUp(UserData:any):Observable<Object>{
+    return this.http.post<any>(`${this.api}/auth/register`, UserData)
   }
 
   //Metodo para traer todos los usuarios

@@ -30,7 +30,7 @@
               class="text-gray-800 text-sm font-semibold hover:text-purple-600 mr-4">Login</a>
             }
             @if (!isAuthenticated) {
-              <a [routerLink]="['/SistemCofee/signup']"
+              <a (click)="singup()"
                 class="text-gray-800 text-sm font-semibold hover:text-purple-600 mr-4">SigUp</a>
               }
             @if (isAuthenticated) {
@@ -64,6 +64,10 @@
             <a [routerLink]="['/SistemCofee/login']"
               class="text-gray-800 text-sm font-semibold hover:text-purple-600 mr-4">Login</a>
             }
+            @if (!isAuthenticated) {
+              <a (click)="singup()"
+                class="text-gray-800 text-sm font-semibold hover:text-purple-600 mr-4">SingUp</a>
+              }
            @if (isAuthenticated) {
             <a (click)="logout()"
             class="text-gray-800 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-purple-600 hover:border-purple-600">Cerrar Sesion</a>

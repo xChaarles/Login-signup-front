@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { UsersService } from '../../Service/users.service';
 import { CommonModule } from '@angular/common';
 
@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class SidemenuComponent implements OnInit {
 
-  constructor(private readonly userService : UsersService){
+  constructor(private readonly userService : UsersService, private router: Router){
 
   }
 
@@ -32,6 +32,10 @@ export class SidemenuComponent implements OnInit {
     this.isAuthenticated = false;
     this.isAdmin = false;
     this.isUser = false;
+    this.router.navigate(['SistemCofee/login']); 
+  }
 
+  singup(){
+    this.router.navigate(['SistemCofee/singup'])
   }
 }

@@ -1,1 +1,43 @@
-<p>singup works!</p>
+<section class="items-center">
+    <div class="flex flex-col items-center pt-52">
+    <div class="flex flex-col items-center">
+    <h1 class="pb-5  text-lg font-semibold text-left rtl:text-right">Agregar Usuario</h1>
+    <form class="items-center justify-center">
+        <div class="pb-3">
+            <label class="pr-6  text-lg font-semibold text-left rtl:text-right">Nombre :</label>
+            <input [(ngModel)]="formData.nombre" type="text" id="nombre" class="rounded-md border-2 border-black" name="nombre">
+        </div>
+        <div class="pb-3">
+            <label class="pr-6  text-lg font-semibold text-left rtl:text-right">Apellido :</label>
+            <input [(ngModel)]="formData.apellido" type="text" id="apellido" class="rounded-md border-2 border-black" name="apellido">
+        </div>
+        <div class="pb-8 ">
+            <label class="pr-12 text-lg font-semibold text-left rtl:text-right">Email :</label>
+            <input [(ngModel)]="formData.email" type="email" id="exampleInemail" class="rounded-md border-2 border-black" aria-describedby="emailHelp" name="email">
+        </div>
+        <div class="pb-8 ">
+            <label class="pr-4 text-lg font-semibold text-left rtl:text-right">Password :</label>
+            <input [(ngModel)]="formData.password" type="email" id="exampleInemail" class="rounded-md border-2 border-black" aria-describedby="emailHelp" name="email">
+        </div>
+        @if(isAdmin){
+        <div class="pb-8 ">
+            <label class="pr-4 text-lg font-semibold text-left rtl:text-right">Role :</label>
+            <input [(ngModel)]="formData.role" type="email" id="exampleInemail" class="rounded-md border-2 border-black" aria-describedby="emailHelp" name="email">
+        </div>
+        }
+        @if(isAdmin){
+        <div class="flex mx-[150px]">
+        <button
+        class="font-medium text-white dark:text-white rounded-md bg-blue-600 w-24 h-8" (click)="handleSubmit()">Crear</button>
+        </div>
+        }
+        @if(!isAdmin){
+            <div class="flex mx-[150px]">
+            <button
+            class="font-medium text-white dark:text-white rounded-md bg-blue-600 w-24 h-8" (click)="SingUpUser()">Crear</button>
+            </div>
+        }
+    </form>
+    </div>
+</div>
+</section>
