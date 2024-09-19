@@ -27,13 +27,13 @@ export const routes: Routes = [
                 loadComponent: () => import('./SistemCofee/userlist/userlist.component'),
             },
             {
-                path: 'updateuser',
+                path: 'updateuser/:id',
                 title: 'Actualizar Usuario',
                 loadComponent: () => import('./SistemCofee/updateuser/updateuser.component'),
             },
             {
                 path:'', 
-                redirectTo: 'login',
+                redirectTo: 'Sistemcofee',
                 pathMatch:'full',
             }
         ]

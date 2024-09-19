@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class UsersService {
 
-  private api = "http://localhost:8080/"
+  private api = "http://localhost:8080"
 
   constructor( private http : HttpClient) {}
 
@@ -79,7 +79,7 @@ export class UsersService {
 
   //Metodo para actualizar un usuario
   async updateUser(userId: string,userData:any, token:string):Promise<any>{
-    const url = `${this.api}/admin/uodate/${userId}`;
+    const url = `${this.api}/admin/update/${userId}`;
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     })

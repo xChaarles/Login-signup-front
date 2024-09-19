@@ -2,17 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { UsersService } from '../../Service/users.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector:'app-sidemenu',
   standalone: true,
-  imports: [FormsModule, RouterModule],
+  imports: [FormsModule, RouterModule, CommonModule],
   templateUrl: './sidemenu.component.html',
   styles: ``
 })
 export class SidemenuComponent implements OnInit {
 
-  constructor(private userService : UsersService){
+  constructor(private readonly userService : UsersService){
 
   }
 

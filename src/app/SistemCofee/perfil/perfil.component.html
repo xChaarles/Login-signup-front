@@ -1,1 +1,27 @@
-<p>perfil works!</p>
+<section class="pt-20">
+    <div class="flex flex-col items-center pt-32 pb-14 gap-y-6">
+        <h1>Detealle de <b>{{profileInfo?.users?.nombre}} {{profileInfo?.users?.apellido}}</b></h1>
+    <div>
+        @if (errorMessage) {
+            <p>{{errorMessage}}</p>
+        }
+        <div class="flex flex-col ">
+            <div class="">
+                <label> <b>Nombre:  </b>{{ profileInfo?.users?.nombre }}</label>            
+            </div>
+            <div class="">
+                <label><b>Apellido:  </b>{{ profileInfo?.users?.apellido }}</label>            
+            </div>
+            <div class="">
+                <label><b>Email:  </b>{{ profileInfo?.users?.email }}</label>            
+            </div>
+        </div>
+        
+        </div>
+        @if (profileInfo?.users?.role === "ADMIN") {
+            <button class="border-2 w-32 h-8 rounded-lg bg-blue-600 text-white font-bold" (click)="updatePerfil(profileInfo?.users?.id)">
+                Actualizar
+            </button>
+        }
+    </div>
+</section>

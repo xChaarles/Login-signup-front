@@ -1,1 +1,52 @@
-<p>userlist works!</p>
+<section class="flex flex-col items-center pt-52">
+    <caption class="p-5 text-xl font-bold uppercase text-left rtl:text-right text-gray-90 dark:text-white">
+        Lista de clientes
+    </caption>
+    <div class="overflow-x-auto sm:rounded-lg">    
+        <table class="w-[400px] text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 border-2 rounded-md border-blue-500">
+            
+            <thead class="text-xs border-2 rounded-md border-blue-500 text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        ID
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Nombre
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Apellido
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Email
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (empleado of user; track empleado.id) {
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{ empleado.id }}
+                    </th>
+                    <td class="px-6 py-4">
+                        {{ empleado.nombre }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ empleado.apellido }}   
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ empleado.email }}
+                    </td>
+                    <td class="flex gap-x-3 px-6 py-4">
+                        <button class="text-center text-white bg-blue-500 rounded-md w-24 h-8" [routerLink]="['/SistemCofee/updateuser',empleado.id]">Actualiar</button>
+                        <button class="text-center text-white bg-red-500  rounded-md w-24 h-8" (click)="elimarUser(empleado.id)" >Eliminar</button>
+                        <button class="text-center text-white bg-blue-500 rounded-md w-24 h-8" [routerLink]="['/SistemCofee/perfil',empleado.id]">Detealles</button>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
